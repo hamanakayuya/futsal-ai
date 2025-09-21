@@ -14,7 +14,7 @@ setuptools.setup(
     description="Radar view generation and analysis tools for futsal matches",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/hamanakayuya/sports",
+    url="https://github.com/hamanakayuya/futsal-ai",
     author="Piotr Skalski, Yuya Hamanaka",
     author_email="piotr.skalski92@gmail.com, c1200988@st.kanazawa-it.ac.jp",
     license='MIT',
