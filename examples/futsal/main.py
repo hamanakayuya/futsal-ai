@@ -16,7 +16,7 @@ from sports.common.view import ViewTransformer
 from sports.configs.futsal import FutsalPitchConfiguration
 
 PARENT_DIR = os.path.dirname(os.path.abspath(__file__))
-PLAYER_DETECTION_MODEL_PATH = os.path.join(PARENT_DIR, 'data/futsal-players-detection.pt')
+PLAYER_DETECTION_MODEL_PATH = os.path.join(PARENT_DIR, 'data/best_futsal-players-detection.pt')
 PITCH_DETECTION_MODEL_PATH = os.path.join(PARENT_DIR, 'data/futsal-pitch-detection.pt')
 BALL_DETECTION_MODEL_PATH = os.path.join(PARENT_DIR, 'data/futsal-ball-detection.pt')
 
