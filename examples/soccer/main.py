@@ -413,10 +413,10 @@ def main(source_video_path: str, target_video_path: str, device: str, mode: Mode
         for frame in frame_generator:
             sink.write_frame(frame)
 
-            cv2.imshow("frame", frame)
-            if cv2.waitKey(1) & 0xFF == ord("q"):
-                break
-        cv2.destroyAllWindows()
+            #cv2.imshow("frame", frame)
+            #if cv2.waitKey(1) & 0xFF == ord("q"):
+             #   break
+        #cv2.destroyAllWindows()
 
 
 if __name__ == '__main__':
