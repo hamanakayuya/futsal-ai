@@ -1,0 +1,17 @@
+.git
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.tmp
+*.log
+
+# 大きいファイル・生成物
+*.mp4
+*.avi
+*.mov
+*.mkv
+data/
+outputs/
+runs/
