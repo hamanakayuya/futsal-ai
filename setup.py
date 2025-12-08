@@ -4,8 +4,11 @@ import setuptools
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
 
-# The text of the README file
-README = (HERE / "README.md").read_text(encoding="utf-8")
+# The text of the README file (Docker 内で README.md が無くても落ちないようにする)
+try:
+    README = (HERE / "README.md").read_text(encoding="utf-8")
+except FileNotFoundError:
+    README = ""
 
 setuptools.setup(
     name="sports-futsal",
