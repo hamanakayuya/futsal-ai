@@ -159,3 +159,25 @@ data/
 # secrets
 .env
 **/.env
+
+# --- Ultralytics / YOLO (training artifacts) ---
+.ultralytics/
+runs/
+datasets/
+
+# YOLO weights
+*.pt
+
+# core dumps (Linux crash files)
+core.*
+core
+
+# generated outputs (pitch debug etc.)
+futsal_pitch*.png
+futsal_pitch_debug*.png
+*.mp4
+*.avi
+
+# optional: local notebooks/scripts you don't want to track
+examples/futsal/notebooks/
+examples/futsal/notebooks/*.py
