@@ -26,8 +26,8 @@ def draw_pitch(
     point_radius: int = 8,
     scale: float = 0.25,
     # 追加: デバッグ表示/ゴール描画
-    draw_keypoints: bool = True,
-    draw_edges: bool = True,
+    draw_keypoints: bool = False,
+    draw_edges: bool = False,
     draw_goal_frames: bool = True,
     keypoint_radius: int = 10,
     keypoint_fill_color: sv.Color = sv.Color.from_hex("#00BFFF"),  # 水色
