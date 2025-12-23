@@ -255,8 +255,8 @@ if __name__ == "__main__":
     # 01-38 + edges + goal を重ねた「デバッグ版」
     img = draw_pitch(
         cfg,
-        draw_keypoints=True,
-        draw_edges=True,
+        draw_keypoints=False,
+        draw_edges=False,
         draw_goal_frames=True,
         scale=0.25,
         padding=50,
