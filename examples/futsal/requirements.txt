@@ -1,2 +1,13 @@
 ultralytics
 gdown
+
+supervision
+opencv-python
+numpy
+tqdm
+
+torch
+torchvision
+
+scikit-learn
+transformers
