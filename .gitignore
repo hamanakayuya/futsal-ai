@@ -180,4 +180,5 @@ futsal_pitch_debug*.png
 
 # optional: local notebooks/scripts you don't want to track
 examples/futsal/notebooks/
-examples/futsal/notebooks/*.py
+examples/futsal/notebooks/*.py.env
+*.env
