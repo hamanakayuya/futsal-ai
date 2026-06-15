@@ -17,6 +17,24 @@ except Exception:
 
 from sports.configs.futsal import FutsalPitchConfiguration
 
+# ============================================================
+# Full-court only mode: 反面コート由来のキーポイントを除外
+# ============================================================
+# 反面コートの線上にあるkp(物理座標が反面30x16基準で定義困難)を除外
+HALF_COURT_KP = {9, 11, 12, 14, 15, 17, 22, 24, 25, 27, 28, 30}  # 反面コート由来12点
+# 全38点から反面kp(13個)を除いた25点を使う
+FULL_COURT_KP = set(range(1, 39)) - HALF_COURT_KP
+
+
+# ============================================================
+# Full-court only mode: 反面コート由来のキーポイントを除外
+# ============================================================
+# 反面コートの線上にあるkp(物理座標が反面30x16基準で定義困難)を除外
+HALF_COURT_KP = {9, 11, 12, 14, 15, 17, 22, 24, 25, 27, 28, 30}  # 反面コート由来12点
+# 全38点から反面kp(13個)を除いた25点を使う
+FULL_COURT_KP = set(range(1, 39)) - HALF_COURT_KP
+
+
 
 # ============================================================
 # 1) Labelme reader
@@ -55,10 +73,10 @@ def load_labelme_points(json_path: Path):
         elif label == "ball":
             ball_px = (x, y)
         else:
-            # pitch keypoint
+            # pitch keypoint (full-court only)
             try:
                 kid = int(label)  # "01" -> 1
-                if 1 <= kid <= 38:
+                if kid in FULL_COURT_KP:
                     pitch_kp_px[kid] = (x, y)
             except Exception:
                 pass
@@ -182,7 +200,9 @@ def infer_pitch_keypoints_pose(model: YOLO, image_bgr: np.ndarray, kp_conf: floa
     K = xy_np.shape[0]
     for i in range(K):
         if float(cf_np[i]) >= kp_conf:
-            out[i + 1] = (float(xy_np[i, 0]), float(xy_np[i, 1]))  # 1..38
+            kid = i + 1
+            if kid in FULL_COURT_KP:  # 反面コートkpは除外
+                out[kid] = (float(xy_np[i, 0]), float(xy_np[i, 1]))
     return out
 
 
