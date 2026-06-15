@@ -311,7 +311,8 @@ def run_team_classification(source_video_path: str, device: str) -> Iterator[np.
             [REFEREE_COLOR_ID] * len(referees)
         )
 
-        labels = [str(tracker_id) for tracker_id in merged.tracker_id]
+        tracker_ids = merged.tracker_id if merged.tracker_id is not None else []
+        labels = [str(tid) if tid is not None else "" for tid in tracker_ids]
 
         annotated_frame = frame.copy()
         annotated_frame = ELLIPSE_ANNOTATOR.annotate(
@@ -416,7 +417,7 @@ def run_radar(source_video_path: str, device: str) -> Iterator[np.ndarray]:
             [REFEREE_COLOR_ID] * len(referees)
         )
 
-        labels = [str(tracker_id) for tracker_id in detections_merged.tracker_id]
+        labels = [str(tracker_id) if tracker_id is not None else "" for tracker_id in (detections_merged.tracker_id if detections_merged.tracker_id is not None else [])]
 
         annotated_frame = frame.copy()
         annotated_frame = ELLIPSE_ANNOTATOR.annotate(
